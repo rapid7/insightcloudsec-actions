@@ -18,6 +18,10 @@ inputs:
   scan_name:
     description: Name of this scan
     required: true
+  driver:
+    description: Name of the scan driver to use (e.g. terraform|cft)
+    required: false
+    default: ""
 outputs:
   stdout:
     description: Output of the mimics scan command
@@ -34,6 +38,8 @@ runs:
     - ${{ inputs.config_name }}
     - -s
     - ${{ inputs.scan_name }}
+    - -p
+    - ${{ inputs.driver }}
     - --report-formats
     - all
     - --no-progress
