@@ -18,6 +18,7 @@ jobs:
           config_name: AWS CIS Benchmark 1.4
           scan_name: Scan on Pull Request
           target: example.yml
+          driver: cft
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2

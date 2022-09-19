@@ -30,6 +30,9 @@ Read how to set secrets here: https://docs.github.com/en/actions/security-guides
 
     # File to scan
     target: example.yml
+
+    # Optional driver to use when unable to autodetect (terraform|cft)
+    driver: terraform
 ```
 
 An example workflow may look like this:
@@ -61,5 +64,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: scan_output.sarif
-
 ```
