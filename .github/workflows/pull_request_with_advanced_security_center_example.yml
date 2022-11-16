@@ -1,6 +1,6 @@
 on:
-  push:
-    branches-ignore:
+  pull_request:
+    branches:
       - master
       - main
 
@@ -11,15 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Scan cloudformation template
-        uses: rapid7/insightcloudsec-actions@latest
+        uses: rapid7/insightcloudsec-actions@v2
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
           config_name: AWS CIS Benchmark 1.4
-          scan_name: Scan on Push
-          target: example.yml
       - name: Upload SARIF file
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: scan_output.sarif
+          sarif_file: ics_scan.sarif

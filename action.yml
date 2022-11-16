@@ -9,25 +9,19 @@ inputs:
   api_key:
     description: Api key for server at base_url
     required: true
-  target:
-    description: File to scan
-    required: true
   config_name:
-    description: Name of configuration to run scan with
+    description: Name of insightCloudSec configuration to run scan with
     required: true
-  scan_name:
-    description: Name of this scan
-    required: true
-  driver:
-    description: Name of the scan driver to use (e.g. terraform|cft)
+  target:
+    description: File(s) to scan
     required: false
-    default: ""
+    default: "./[^.git]*"
 outputs:
   stdout:
     description: Output of the mimics scan command
 runs:
   using: docker
-  image: docker://public.ecr.aws/rapid7-insightcloudsec/ics/mimics:v0.1
+  image: docker://public.ecr.aws/rapid7-insightcloudsec/ics/mimics:v1
   env:
     MIMICS_BASE_URL: ${{ inputs.base_url }}
     MIMICS_API_KEY: ${{ inputs.api_key }}
@@ -36,10 +30,5 @@ runs:
     - ${{ inputs.target }}
     - -c
     - ${{ inputs.config_name }}
-    - -s
-    - ${{ inputs.scan_name }}
-    - -p
-    - ${{ inputs.driver }}
     - --report-formats
     - all
-    - --no-progress
