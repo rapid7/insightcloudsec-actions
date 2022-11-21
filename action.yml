@@ -30,5 +30,7 @@ runs:
     - ${{ inputs.target }}
     - -c
     - ${{ inputs.config_name }}
+    - --log-path
+    - ./mimics.log
     - --report-formats
     - all
