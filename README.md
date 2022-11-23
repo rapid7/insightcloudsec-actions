@@ -53,5 +53,5 @@ jobs:
         if: always()
         uses: github/codeql-action/upload-sarif@v2
         with:
-          sarif_file: scan_output.sarif
+          sarif_file: ics_scan.sarif
 ```
