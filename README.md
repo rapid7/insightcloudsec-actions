@@ -48,6 +48,15 @@ jobs:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
           config_name: AWS CIS Benchmark 1.4
+      # the following is optional but recommended to retrieve scan reports and logs
+      - name: Attach scan artifacts
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: mimics-scan-artifacts
+          path: |
+            ./log/mimics*.log
+            ./ics_scan.*
       # the following is optional but recommended to surface results to Github Advanced Security
       - name: Upload the sarif report to Github Advanced Security
         if: always()

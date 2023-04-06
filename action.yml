@@ -3,15 +3,31 @@ author: Rapid7
 description: >
   Scans a cloudformation template and saves results to disk.
 inputs:
-  base_url:
-    description: URL of ICS server
-    required: true
   api_key:
     description: Api key for server at base_url
+    required: true
+  base_url:
+    description: URL of ICS server
     required: true
   config_name:
     description: Name of insightCloudSec configuration to run scan with
     required: true
+  log_level:
+    description: Sets log level ["trace", "debug", "info", "warn", "error", "fatal"] (default "info")
+    required: false
+    default: "info"
+  log_path:
+    description: Path to write log file
+    required: false
+    default: "./log/mimics.log"
+  report_formats:
+    description: Formats of scan result report artifacts (all,sarif,html,junitxml) (default "all")
+    required: false
+    default: "all"
+  report_path:
+    description: Path to write report files
+    required: false
+    default: "./"
   target:
     description: File(s) to scan
     required: false
@@ -30,7 +46,11 @@ runs:
     - ${{ inputs.target }}
     - -c
     - ${{ inputs.config_name }}
+    - --log-level
+    - ${{ inputs.log_level }}
     - --log-path
-    - ./mimics.log
+    - ${{ inputs.log_path }}
+    - --report-path
+    - ${{ inputs.report_path }}
     - --report-formats
-    - all
+    - ${{ inputs.report_formats }}
