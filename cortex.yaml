@@ -1,0 +1,14 @@
+---
+info:
+  title: Insightcloudsec Actions
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/insightcloudsec-actions
+  x-cortex-tag: insightcloudsec-actions
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: insightcloudsec
+openapi: 3.0.1
+servers:
+- url: "/"
