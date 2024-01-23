@@ -8,7 +8,7 @@ info:
   x-cortex-tag: insightcloudsec-actions
   x-cortex-type: service
   x-cortex-domain-parents:
-  - tag: insightcloudsec
+  - tag: ics-miscellany
 openapi: 3.0.1
 servers:
 - url: "/"
