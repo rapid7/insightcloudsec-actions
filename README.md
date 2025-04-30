@@ -51,7 +51,7 @@ jobs:
       # the following is optional but recommended to retrieve scan reports and logs
       - name: Attach scan artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mimics-scan-artifacts
           path: |
