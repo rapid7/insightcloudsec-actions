@@ -9,16 +9,16 @@ jobs:
     name: insightCloudSec scan and upload
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Scan cloudformation template
-        uses: rapid7/insightcloudsec-actions@v2
+        uses: rapid7/insightcloudsec-actions@latest
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
           config_name: AWS CIS Benchmark 1.4
       - name: Attach scan artifacts
         if: always()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: mimics-scan-artifacts
           path: |
