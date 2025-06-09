@@ -41,9 +41,9 @@ jobs:
     name: insightCloudSec repository scan with Github Advanced Security
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Scan the repository
-        uses: rapid7/insightcloudsec-actions@v2
+        uses: rapid7/insightcloudsec-actions@latest
         with:
           api_key: ${{ secrets.ics_api_key }}
           base_url: ${{ secrets.ics_base_url }}
