@@ -11,6 +11,13 @@ info:
   - tag: ics-miscellany
   x-cortex-groups:
   - exposure:external-ship
+  x-cortex-owners:
+  - name: rapid7-csp-shiftleft-devs
+    type: GROUP
+    provider: CORTEX
+  - name: rapid7/csp-shiftleft-devs
+    type: GROUP
+    provider: GITHUB
 openapi: 3.0.1
 servers:
 - url: "/"
