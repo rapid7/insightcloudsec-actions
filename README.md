@@ -24,7 +24,7 @@ Read how to set secrets here: https://docs.github.com/en/actions/security-guides
     config_name: AWS CIS Benchmark 1.4
 
     # Optional file(s) to scan (default: all files in the repository excluding the .git/ directory)
-    target: ./[^.git]*
+    files_to_scan: ./[^.git]*
 
     # Optional: Scan target identifier used for exception filtering (default: "Github Action Scan")
     scan_target: "Github Action Scan"

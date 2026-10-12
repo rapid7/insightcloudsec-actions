@@ -41,7 +41,7 @@ outputs:
     description: Output of the mimics scan command
 runs:
   using: docker
-  image: docker://public.ecr.aws/rapid7-insightcloudsec/ics/mimics:v1
+  image: docker://public.ecr.aws/rapid7-insightcloudsec/ics/mimics:v2
   env:
     MIMICS_BASE_URL: ${{ inputs.base_url }}
     MIMICS_API_KEY: ${{ inputs.api_key }}
